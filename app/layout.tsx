@@ -6,7 +6,8 @@ import {config} from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css"
 
 config.autoAddCss = false;
-// continue at 23:00
+// continue at 31:00
+// use npm run dev
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
