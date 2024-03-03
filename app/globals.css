@@ -1,8 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Apply tailwind to the base file that render's all files */
+@layer base{
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-bold;
+    }
+    h1{
+        @apply text-4xl;
+    }
+    h2{
+        @apply text-3xl;
+    }
+    h3{
+        @apply text-2xl;
+    }
+    h4{
+        @apply text-xl;
+    }
+    p{
+        @apply text-sm text-default-text;
+    }
+}
 /* Applying  tailwind classes through the @layer to the components folder*/
-@layer componentd{
+@layer component{
     .icon{
         @apply text-default-text text-xl;
     }
