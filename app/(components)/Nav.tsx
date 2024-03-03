@@ -1,7 +1,7 @@
 import { faTicket, faHome } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link"
-const Nav = ()=>{
+const Nav:React.FC = ()=>{
     return(
         <nav className="flex justify-between bg-nav p-4">
             <div className="flex items-center space-x-4">
