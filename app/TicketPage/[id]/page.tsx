@@ -1,11 +1,7 @@
-interface TicketPageProps {
-    params:{
-        id: number
-    }
-}
-const TicketPage: React.FC<TicketPageProps> = ({params})=>{
+import TicketForm from "@/app/(components)/TicketForm";
+const TicketPage: React.FC = ()=>{
     return(
-        <h1>Ticket Page {params.id}</h1>
+        <TicketForm/>
     )
 
 }
