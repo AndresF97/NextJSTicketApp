@@ -14,6 +14,5 @@ const ticketSchemas = new mongoose.Schema({
     timestamps:true
 })
 
-const Ticket = mongoose.model("ticket", ticketSchemas);
-
-module.exports = Ticket
+const Ticket = mongoose.models.ticket ||mongoose.model("ticket", ticketSchemas);
+module.exports = Ticket;
