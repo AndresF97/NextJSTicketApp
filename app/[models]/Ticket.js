@@ -1,6 +1,8 @@
-const {Schema, model} = require('mongoose')
+const mongoose = require('mongoose')
+mongoose.connect(process.env.MONGODB_URI||'mongodb://127.0.0.1:27017/TicketApp')
+mongoose.Promise = global.Promise
 
-const ticketSchemas = new Schema({
+const ticketSchemas = new mongoose.Schema({
     title:String,
     description:String,
     category:String,
@@ -12,6 +14,6 @@ const ticketSchemas = new Schema({
     timestamps:true
 })
 
-const Ticket = model("ticket", ticketSchemas);
+const Ticket = mongoose.model("ticket", ticketSchemas);
 
 module.exports = Ticket
