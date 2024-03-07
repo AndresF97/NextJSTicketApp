@@ -2,7 +2,12 @@ import DeleteBlock from "./DeleteBlock";
 import PriorityDisplay from "./PriorityDisplay";
 import ProgressDisplay from "./PorgressDisplay";
 import StatusDisplay from "./StatusDisplay";
-const TicketCard: React.FC = () => {
+interface CardInfo {
+    id:number,
+    key:number,
+    ticket:object
+}
+const TicketCard: React.FC<CardInfo> = () => {
     return (
         // Card that displays each tickter
         // 
