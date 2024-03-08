@@ -5,32 +5,62 @@ import StatusDisplay from "./StatusDisplay";
 interface CardInfo {
     id:number,
     key:number,
-    ticket:object
+    ticket:{
+        _id:string
+        title:string,
+        description:string,
+        category:string,
+        progress:number,
+        priority: number,
+        status: string,
+        active:boolean
+        createdAt:string
+    }
 }
-const TicketCard: React.FC<CardInfo> = () => {
+const TicketCard: React.FC<CardInfo> = ({ticket}) => {
+    const formatTimeStamp = (timestamp:string)=>{
+        const options:{
+            year:'numeric',
+            month:"2-digit",
+            day:"2-digit",
+            hour:"2-digit",
+            minute:"2-digit",
+            hour12: true
+        } ={
+            year:'numeric',
+            month:"2-digit",
+            day:"2-digit",
+            hour:"2-digit",
+            minute:"2-digit",
+            hour12: true
+        }
+        const date = new Date(timestamp);
+        const formattedDate = date.toLocaleDateString('en-US', options)
+        return formattedDate;
+    }
     return (
         // Card that displays each tickter
         // 
         <div className="flex flex-col bg-card hover:bg-card-hover rounded-md shadow-lg p-3 m-2">
             <div className="flex mb-3">
-                <PriorityDisplay />
+                <PriorityDisplay priority={ticket.priority}/>
                 <div className="ml-auto">
-                    <DeleteBlock />
+                    <DeleteBlock id={ticket._id}/>
                 </div>
             </div>
-            <h4>Ticket Title</h4>
+            <h4>{ticket.title}</h4>
             <hr className="h-px border-0 bg-page mb-2" />
             <p className="whitespace-pre-wrap">
-                this is the ticket desciption! Please do this ticket
+               {ticket.description}
             </p>
             <div className="flex-grow"></div>
             <div className="flex mt-2">
                 <div className="flex flex-col">
-                    <p className="text-sx my-1">10/24/24 10:00PM</p>
-                    <ProgressDisplay />
+                    <p className="text-sx my-1">{formatTimeStamp(ticket.createdAt)}</p>
+                    <ProgressDisplay progress={ticket.progress}/>
                 </div>
                 <div className="ml-auto flex items-end">
-                    <StatusDisplay />
+                    <StatusDisplay status={ticket.status} />
                 </div>
             </div>
         </div>

@@ -12,13 +12,15 @@ const getTickets= async() =>{
 }
  const Home:React.FC = async () => {
   interface Ticket {
+    _id:string,
     title:string,
     description:string,
     category:string,
     progress:number,
     priority: number,
     status: string,
-    active:boolean
+    active:boolean,
+    createdAt: string
   }
   const data: { tickets?: Ticket[] }  = await getTickets() 
   const uniqueCategories:string [] = Array.from(new Set(data.tickets?.map(({ category }) => category)));
