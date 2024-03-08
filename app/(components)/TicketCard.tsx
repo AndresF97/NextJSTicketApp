@@ -2,6 +2,7 @@ import DeleteBlock from "./DeleteBlock";
 import PriorityDisplay from "./PriorityDisplay";
 import ProgressDisplay from "./PorgressDisplay";
 import StatusDisplay from "./StatusDisplay";
+import Link from "next/link"
 interface CardInfo {
     id:number,
     key:number,
@@ -48,6 +49,7 @@ const TicketCard: React.FC<CardInfo> = ({ticket}) => {
                     <DeleteBlock id={ticket._id}/>
                 </div>
             </div>
+            <Link href={`/TicketPage/${ticket._id}`} style={{display:"contents"}}>
             <h4>{ticket.title}</h4>
             <hr className="h-px border-0 bg-page mb-2" />
             <p className="whitespace-pre-wrap">
@@ -63,6 +65,7 @@ const TicketCard: React.FC<CardInfo> = ({ticket}) => {
                     <StatusDisplay status={ticket.status} />
                 </div>
             </div>
+            </Link>
         </div>
     )
 }
